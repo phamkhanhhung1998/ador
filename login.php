@@ -54,3 +54,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h1>Đăng Nhập</h1>
+            <form action="login.php" method="POST">
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="Tên đăng nhập" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" id="password" placeholder="Mật khẩu" required>
+                    <span id="toggle-password" class="toggle-password">👁️</span>
+                </div>
+                <button type="submit" class="login-btn">Đăng Nhập</button>
+            </form>
+        </div>
+        <div class="image-container">
+            <img src="pic/anh1.jpg" alt="Hình minh họa">
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
